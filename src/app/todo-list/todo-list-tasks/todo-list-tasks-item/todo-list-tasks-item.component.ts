@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../../shared/models/task.model';
 import { CommonModule } from '@angular/common';
 
@@ -10,4 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class TodoListTasksItemComponent {
   @Input() task!: Task;
+  @Output() onDelete: EventEmitter<Task> = new EventEmitter<Task>();
+
+  deleteTask() {
+    this.onDelete.emit(this.task);
+  }
 }

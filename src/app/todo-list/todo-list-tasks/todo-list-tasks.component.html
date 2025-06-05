@@ -8,7 +8,10 @@
   <div class="card py-2">
     <div class="card-body p-4">
       <div *ngFor="let task of tasks">
-        <app-todo-list-tasks-item [task]="task"></app-todo-list-tasks-item>
+        <app-todo-list-tasks-item
+          [task]="task"
+          (onDelete)="deleteTask($event)"
+        ></app-todo-list-tasks-item>
       </div>
     </div>
   </div>
